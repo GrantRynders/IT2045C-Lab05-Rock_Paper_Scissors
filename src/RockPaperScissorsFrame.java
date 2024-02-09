@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class RockPaperScissorsFrame extends JFrame
 {
@@ -12,23 +14,21 @@ public class RockPaperScissorsFrame extends JFrame
     private JButton scissorsButton;
     private JButton paperButton;
     private JButton quitButton;
+    private ImageIcon rockImage;
+    private ImageIcon scissorsImage;
+    private ImageIcon paperImage;
+    private ImageIcon quitImage;
     private JLabel winLabel;
-    private JTextField winText;
+    public JTextField winText;
     private JLabel lossLabel;
-    private JTextField lossText;
+    public JTextField lossText;
     private JLabel tieLabel;
-    private JTextField tieText;
+    public JTextField tieText;
     private JScrollPane resultsScroller;
-    private JTextArea resultsText;
+    public JTextArea resultsText;
 
+    private RockPaperScissorsRunner rps = new RockPaperScissorsRunner();
 
-
-    private int winCount = 0;
-    private int lossCount = 0;
-    private int tieCount = 0;
-    private int gameCount = 0;
-
-    public int playerChoice;
     public RockPaperScissorsFrame()
     {
         mainPanel = new JPanel();
@@ -47,38 +47,72 @@ public class RockPaperScissorsFrame extends JFrame
         int screenHeight = screenSize.height;
         int screenWidth = screenSize.width;
         setSize((screenWidth / 4) * 3, screenHeight);
-        setLocation(screenWidth / 8, screenHeight);
+        setLocation(screenWidth / 8, 0);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
-    public void CreateOptionsPanel()
+    private void CreateOptionsPanel()
     {
         optionsPanel = new JPanel();
         optionsPanel.setLayout(new GridLayout(1,4));
-        rockButton = new JButton("ROCK");
-        paperButton = new JButton("PAPER");
-        scissorsButton = new JButton("SCISSORS");
-        quitButton = new JButton("QUIT");
+        rockImage = new ImageIcon("src\\0rock.jpg");
+        Image rockTemp = rockImage.getImage();
+        Image scalableRock = rockTemp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        rockImage = new ImageIcon(scalableRock);
+        paperImage = new ImageIcon("src\\0paper.jpg");
+        Image paperTemp = paperImage.getImage();
+        Image scalablePaper = paperTemp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        paperImage = new ImageIcon(scalablePaper);
+        scissorsImage = new ImageIcon("src\\0scissors.jpg");
+        Image scissorsTemp = scissorsImage.getImage();
+        Image scalableScissors = scissorsTemp.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        scissorsImage = new ImageIcon(scalableScissors);
+        quitImage = new ImageIcon("src\\0quit.jpg");
+        Image image = quitImage.getImage();
+        Image scalableImg = image.getScaledInstance(200, 200,  java.awt.Image.SCALE_SMOOTH); // scale it the smooth way
+        quitImage = new ImageIcon(scalableImg);
+        rockButton = new JButton(rockImage);
+        paperButton = new JButton(paperImage);
+        scissorsButton = new JButton(scissorsImage);
+        quitButton = new JButton(quitImage);
         quitButton.addActionListener(e -> System.exit(0));
-        rockButton.addActionListener(e -> {playerChoice = 0;});
-        paperButton.addActionListener(e -> {playerChoice = 1;});
-        scissorsButton.addActionListener(e -> {playerChoice = 2;});
+        rockButton.addActionListener(e ->
+        {
+            rps.playerChoice = 0;
+            rps.rockCount += 1;
+            rps.NewGame(rps.playerChoice);
+        });
+        paperButton.addActionListener(e ->
+        {
+            rps.playerChoice = 1;
+            rps.paperCount += 1;
+            rps.NewGame(rps.playerChoice);
+        });
+        scissorsButton.addActionListener(e ->
+        {
+            rps.playerChoice = 2;
+            rps.scissorsCount += 1;
+            rps.NewGame(rps.playerChoice);
+        });
         optionsPanel.add(rockButton);
         optionsPanel.add(paperButton);
         optionsPanel.add(scissorsButton);
         optionsPanel.add(quitButton);
         optionsPanel.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.RAISED));
     }
-    public void CreateStatsPanel()
+    private void CreateStatsPanel()
     {
         statsPanel = new JPanel();
         statsPanel.setLayout(new GridLayout(2,3));
         winLabel = new JLabel("Player Wins");
+        winLabel.setHorizontalTextPosition(JLabel.CENTER);
         lossLabel = new JLabel("Computer Wins");
+        lossLabel.setHorizontalTextPosition(JLabel.CENTER);
         tieLabel = new JLabel("Ties");
-        winText = new JTextField(winCount);
-        lossText = new JTextField(lossCount);
-        tieText = new JTextField(tieCount);
+        tieLabel.setHorizontalTextPosition(JLabel.CENTER);
+        winText = new JTextField(rps.getWinCount());
+        lossText = new JTextField(rps.getLossCount());
+        tieText = new JTextField(rps.getTieCount());
         statsPanel.add(winLabel);
         statsPanel.add(lossLabel);
         statsPanel.add(tieLabel);
@@ -86,13 +120,11 @@ public class RockPaperScissorsFrame extends JFrame
         statsPanel.add(lossText);
         statsPanel.add(tieText);
     }
-    public void CreateResultsPanel()
+    private void CreateResultsPanel()
     {
         resultsPanel = new JPanel();
-        resultsScroller = new JScrollPane();
-        resultsText = new JTextArea();
-
-        resultsScroller.add(resultsText);
+        resultsText = new JTextArea(10, 50);
+        resultsScroller = new JScrollPane(resultsText);
         resultsPanel.add(resultsScroller);
     }
 }

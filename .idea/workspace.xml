@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86b93d49-8275-4ac1-b365-fd0e3dbb4b12" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Rock_Paper_Scissors.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RockPaperScissorsFrame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/RockPaperScissorsRunner.java" afterDir="false" />
+    <list default="true" id="86b93d49-8275-4ac1-b365-fd0e3dbb4b12" name="Changes" comment="Initial Commit in case I frick up disasterously">
+      <change afterPath="$PROJECT_DIR$/src/Cheat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LastUsed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LeastUsed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MostUsed.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/RandomChoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Strategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RockPaperScissorsFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RockPaperScissorsFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/RockPaperScissorsRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/RockPaperScissorsRunner.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -46,7 +47,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/scarf/IdeaProjects/FortuneTeller"
+    "last_opened_file_path": "C:/Users/scarf/IdeaProjects/Interfaces"
   }
 }]]></component>
   <component name="RunManager">
@@ -72,6 +73,30 @@
       <option name="presentableId" value="Default" />
       <updated>1707404302852</updated>
     </task>
+    <task id="LOCAL-00001" summary="Initial Commit in case I frick up disasterously">
+      <option name="closed" value="true" />
+      <created>1707408044685</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1707408044685</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Initial Commit in case I frick up disasterously" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial Commit in case I frick up disasterously" />
   </component>
 </project>
